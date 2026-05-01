@@ -6,6 +6,7 @@ import SearchBar from "../components/movies/SearchBar";
 import FranchiseTable from "../components/movies/FranchiseTable";
 import PredictionCard from "../components/movies/PredictionCard";
 import RevenueChart from "../components/movies/RevenueChart";
+import ModelDescription from "../components/movies/ModelDescription";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -69,7 +70,9 @@ export default function Home() {
       setNotFound(false);
       setMovies([]);
       setPrediction(null);
-      setErrorMessage("Cannot connect to backend. Make sure Flask is running on port 5001.");
+      setErrorMessage(
+        "Cannot connect to backend. Make sure Flask is running on port 5001."
+      );
     }
 
     setIsLoading(false);
@@ -90,7 +93,7 @@ export default function Home() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <Clapperboard className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">
-                AI-Powered Predictions
+                ML-Powered Predictions
               </span>
             </div>
 
@@ -136,7 +139,23 @@ export default function Home() {
             </div>
           </div>
 
-          <SearchBar onSearch={handleSearch} isLoading={isLoading} />
+          <ModelDescription />
+
+          <div className="mt-8">
+            <SearchBar onSearch={handleSearch} isLoading={isLoading} />
+
+            <div className="w-full max-w-[760px] mx-auto mt-4">
+              <button
+                type="button"
+                onClick={() => {
+                  window.location.href = "/custom-prediction";
+                }}
+                className="block text-left text-sm text-muted-foreground hover:text-primary underline underline-offset-4 transition"
+              >
+                Cannot find your franchise? Try Custom Prediction
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -174,6 +193,7 @@ export default function Home() {
             className="max-w-5xl mx-auto px-4 pb-20 space-y-10"
           >
             <FranchiseTable movies={movies} franchiseName={franchiseName} />
+
             <RevenueChart movies={movies} />
 
             {prediction && <PredictionCard prediction={prediction} />}
@@ -189,6 +209,16 @@ export default function Home() {
               Try searching a movie title that exists in your dataset, such as
               Harry Potter, Star Wars, Fast, Dune, or The Godfather.
             </p>
+
+            <button
+              type="button"
+              onClick={() => {
+                window.location.href = "/custom-prediction";
+              }}
+              className="mt-5 inline-flex rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition"
+            >
+              Use Custom Prediction
+            </button>
           </div>
         </div>
       )}

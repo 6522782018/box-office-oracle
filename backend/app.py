@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from custom_predict import build_custom_features
 import pandas as pd
 import numpy as np
 import joblib
@@ -357,6 +358,32 @@ def predict():
 def health():
     return jsonify({"status": "ok"})
 
+@app.route("/api/custom-predict", methods=["POST"])
+def custom_predict():
+    try:
+        data = request.get_json()
+
+        model_type = data.get("model", "logistic")
+        movies = data.get("movies", [])
+
+        feature_row = build_custom_features(movies)
+
+        if model_type == "xgboost":
+            proba = xgboost_model.predict_proba(feature_row)[0][1]
+            prediction = int(proba >= 0.65)
+        else:
+            proba = logistic_model.predict_proba(feature_row)[0][1]
+            prediction = int(proba >= 0.5)
+
+        return jsonify({
+            "prediction": "Profit" if prediction == 1 else "Loss",
+            "probability": round(float(proba), 3),
+            "model": model_type,
+            "sentiment_used": 52.76
+        })
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
 
 @app.route("/", methods=["GET"])
 def home():
