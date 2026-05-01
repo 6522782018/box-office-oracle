@@ -30,7 +30,7 @@ export default function Home() {
     setFranchiseName(cleanQuery);
 
     try {
-      const response = await fetch("http://127.0.0.1:5001/api/predict", {
+      const response = await fetch("https://predict-movie-profit-backend.onrender.com/api/predict", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
