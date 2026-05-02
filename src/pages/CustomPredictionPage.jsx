@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { appHref } from "../appPaths";
 import CustomPrediction from "../components/movies/CustomPrediction";
 
 export default function CustomPredictionPage() {
@@ -10,7 +11,7 @@ export default function CustomPredictionPage() {
         <button
           type="button"
           onClick={() => {
-            window.location.href = "/";
+            window.location.href = appHref("");
           }}
           className="mb-8 text-sm text-muted-foreground hover:text-primary underline underline-offset-4 transition"
         >

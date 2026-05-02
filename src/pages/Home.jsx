@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Clapperboard } from "lucide-react";
 
+import { appHref } from "../appPaths";
 import SearchBar from "../components/movies/SearchBar";
 import FranchiseTable from "../components/movies/FranchiseTable";
 import PredictionCard from "../components/movies/PredictionCard";
@@ -148,7 +149,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => {
-                  window.location.href = "/custom-prediction";
+                  window.location.href = appHref("custom-prediction");
                 }}
                 className="block text-left text-sm text-muted-foreground hover:text-primary underline underline-offset-4 transition"
               >
@@ -213,7 +214,7 @@ export default function Home() {
             <button
               type="button"
               onClick={() => {
-                window.location.href = "/custom-prediction";
+                window.location.href = appHref("custom-prediction");
               }}
               className="mt-5 inline-flex rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition"
             >
