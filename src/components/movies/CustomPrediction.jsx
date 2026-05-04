@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Plus, Trash2, Loader2 } from "lucide-react";
 
-const API_URL = "https://predict-movie-profit-backend.onrender.com/api/predict";
+const API_URL = "https://predict-movie-profit-backend.onrender.com";
 // Later for deployed version, change to:
 // const API_URL = "https://predict-movie-profit-backend.onrender.com";
 
