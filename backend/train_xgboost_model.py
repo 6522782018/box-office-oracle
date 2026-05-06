@@ -54,7 +54,7 @@ def main():
 
     print("Train supervised rows:", len(train_df))
 
-    # 3. Prepare input features and target labels
+    # 3. Prepare input features and target labels$
     X_train = train_df[FEATURE_COLS].values
     y_train = train_df["y"].values
 
