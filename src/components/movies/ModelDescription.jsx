@@ -9,7 +9,7 @@ export default function ModelDescription() {
             Logistic Regression
           </h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            More careful with risk, but it may miss some profit opportunities.
+            Is better when studios want to avoid Loss as much as possible.
           </p>
         </div>
 
@@ -18,8 +18,8 @@ export default function ModelDescription() {
             XGBoost
           </h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Better at finding possible profit opportunities, but it may also
-            approve some movies that become losses.
+          Is better when you want to identify more profitable sequel opportunities, 
+          but it may take more risk than Logistic Regression.
           </p>
         </div>
       </div>
