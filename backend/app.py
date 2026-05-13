@@ -306,9 +306,6 @@ def predict():
         avg_revenue = float(franchise_movies["Gross_num"].mean())
         avg_profit = float(franchise_movies["Profit_num"].mean())
 
-        avg_budget = avg_budget
-        avg_revenue = avg_revenue
-
         estimated_profit = (avg_revenue / 2) - avg_budget
         estimated_roi = (
             (estimated_profit / avg_budget) * 100
