@@ -9,7 +9,7 @@ export default function ModelDescription() {
             Logistic Regression
           </h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Is better when studios want to avoid Loss as much as possible.
+            Is better when you want to avoid Loss as much as possible.
           </p>
         </div>
 
