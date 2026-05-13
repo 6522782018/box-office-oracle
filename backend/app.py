@@ -306,13 +306,13 @@ def predict():
         avg_revenue = float(franchise_movies["Gross_num"].mean())
         avg_profit = float(franchise_movies["Profit_num"].mean())
 
-        estimated_budget = avg_budget
-        estimated_revenue = avg_revenue
+        avg_budget = avg_budget
+        avg_revenue = avg_revenue
 
-        estimated_profit = (estimated_revenue / 2) - estimated_budget
+        estimated_profit = (avg_revenue / 2) - avg_budget
         estimated_roi = (
-            (estimated_profit / estimated_budget) * 100
-            if estimated_budget != 0
+            (estimated_profit / avg_budget) * 100
+            if avg_budget != 0
             else 0
         )
 
@@ -327,8 +327,8 @@ def predict():
                 "model_name": model_display_name,
                 "threshold": threshold,
 
-                "estimated_budget": round(estimated_budget),
-                "estimated_revenue": round(estimated_revenue),
+                "avg_budget": round(avg_budget),
+                "avg_revenue": round(avg_revenue),
                 "estimated_profit": round(estimated_profit),
                 "estimated_roi": round(estimated_roi, 2),
                 "average_existing_profit": round(avg_profit),

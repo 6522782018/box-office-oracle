@@ -68,16 +68,16 @@ export default function PredictionCard({ prediction }) {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="bg-secondary/40 rounded-lg p-4 text-center">
               <DollarSign className="w-5 h-5 text-primary mx-auto mb-2" />
-              <p className="text-xs text-muted-foreground mb-1">Est. Budget</p>
+              <p className="text-xs text-muted-foreground mb-1">Avg. Past Budget</p>
               <p className="text-lg font-semibold text-foreground">
-                {formatMoney(prediction.estimated_budget)}
+                {formatMoney(prediction.avg_budget)}
               </p>
             </div>
             <div className="bg-secondary/40 rounded-lg p-4 text-center">
               <BarChart3 className="w-5 h-5 text-primary mx-auto mb-2" />
-              <p className="text-xs text-muted-foreground mb-1">Est. Revenue</p>
+              <p className="text-xs text-muted-foreground mb-1">Avg. Past Revenue</p>
               <p className="text-lg font-semibold text-foreground">
-                {formatMoney(prediction.estimated_revenue)}
+                {formatMoney(prediction.avg_revenue)}
               </p>
             </div>
             <div className="bg-secondary/40 rounded-lg p-4 text-center">
